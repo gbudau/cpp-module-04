@@ -4,7 +4,7 @@ const int Character::_max_ap = 40;
 const int Character::_recover_ap = 10;
 
 Character::Character(std::string const & name) :
-	_name(name), _ap(Character::_max_ap), _weapon(0), _enemy(0) {
+	_name(name), _ap(Character::_max_ap), _weapon(0) {
 	return;
 }
 
@@ -16,7 +16,6 @@ Character &			Character::operator=(Character const & rhs) {
 	if (this != &rhs) {
 		this->setName(rhs.getName());
 		this->setAP(rhs.getAP());
-		this->setEnemy(rhs.getEnemy());
 	}
 	return *this;
 }
@@ -38,8 +37,8 @@ void				Character::equip(AWeapon * weapon) {
 }
 
 void				Character::attack(Enemy *enemy) {
-	if (this->getWeapon() == 0 || enemy == 0 ||
-			this->getWeapon()->getAPCost() > this->getAP()) {
+	if (this->getWeapon() == 0 || enemy == 0 || enemy->getIsAlive() == false ||
+			(this->getWeapon()->getAPCost() > this->getAP())) {
 		return;
 	} else {
 		std::cout << this->getName() << " attacks " <<
@@ -47,11 +46,7 @@ void				Character::attack(Enemy *enemy) {
 			this->getWeapon()->getName() << "\n";
 		this->getWeapon()->attack();
 		this->setAP(this->getAP() - this->getWeapon()->getAPCost());
-		if (enemy->getHP() > this->getWeapon()->getDamage()) {
-			enemy->takeDamage(this->getWeapon()->getDamage());
-		} else {
-			delete enemy;
-		}
+		enemy->takeDamage(this->getWeapon()->getDamage());
 	}
 }
 
@@ -78,10 +73,6 @@ AWeapon *			Character::getWeapon() const {
 	return this->_weapon;
 }
 
-Enemy *				Character::getEnemy() const {
-	return this->_enemy;
-}
-
 void				Character::setName(std::string const & name) {
 	this->_name = name;
 }
@@ -92,8 +83,4 @@ void				Character::setAP(int ap) {
 
 void				Character::setWeapon(AWeapon *weapon) {
 	this->_weapon = weapon;
-}
-
-void				Character::setEnemy(Enemy *enemy) {
-	this->_enemy = enemy;
 }

@@ -18,19 +18,16 @@ class Character {
 	std::string const &	getName() const;
 	int					getAP() const;
 	AWeapon				*getWeapon() const;
-	Enemy				*getEnemy() const;
 
  protected:
 	void				setName(std::string const & name);
 	void				setAP(int ap);
 	void				setWeapon(AWeapon *weapon);
-	void				setEnemy(Enemy *enemy);
 
  private:
 	std::string			_name;
 	int					_ap;
 	AWeapon				*_weapon;
-	Enemy				*_enemy;
 	static const int	_max_ap;
 	static const int	_recover_ap;
 };
