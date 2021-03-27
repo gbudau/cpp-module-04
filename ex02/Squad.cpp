@@ -49,7 +49,6 @@ int				Squad::push(ISpaceMarine *unit) {
 		ISpaceMarine** new_units = new ISpaceMarine*[new_max_size];
 
 		std::memcpy(new_units, _units, sizeof(ISpaceMarine *) * _count);
-		new_units[_count] = unit;
 		delete[] _units;
 		_max_size = new_max_size;
 		_units = new_units;
