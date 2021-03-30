@@ -23,7 +23,6 @@ class Squad : public ISquad {
 	ISpaceMarine**		_units;
 	void				_erase();
 	bool				_is_duplicate(ISpaceMarine *unit);
-	static const int	_start_units;
 };
 
 #endif  // SQUAD_HPP_
