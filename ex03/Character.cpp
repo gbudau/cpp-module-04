@@ -55,7 +55,7 @@ void		Character::unequip(int idx) {
 	}
 }
 
-void		Character::use(int idx, ICharacter const & target) {
+void		Character::use(int idx, ICharacter& target) {
 	if (idx >= 0 && idx < _n_current_items) {
 		_inventory[idx]->use(target);
 	}
