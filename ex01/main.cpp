@@ -22,13 +22,13 @@ int	main() {
 		std::cout << *me;
 		me->equip(pf);
 
-		me->attack(b);
+		me->attack(&b);
 		std::cout << *me;
 		me->equip(pr);
 		std::cout << *me;
-		me->attack(b);
+		me->attack(&b);
 		std::cout << *me;
-		me->attack(b);
+		me->attack(&b);
 		std::cout << *me;
 
 		delete pf;
@@ -50,15 +50,15 @@ int	main() {
 
 		khans->equip(aa);
 		std::cout << *khans;
-		khans->attack(ca);
+		khans->attack(&ca);
 		std::cout << *khans;
-		khans->attack(ca);
+		khans->attack(&ca);
 		std::cout << *khans;
-		khans->attack(ca);
+		khans->attack(&ca);
 		std::cout << *khans;
-		khans->attack(ca);
+		khans->attack(&ca);
 		std::cout << *khans;
-		khans->attack(ca);
+		khans->attack(&ca);
 
 		khans->recoverAP();
 		std::cout << *khans;
@@ -66,14 +66,14 @@ int	main() {
 		std::cout << *khans;
 
 		std::cout << *khans;
-		khans->attack(ca);
+		khans->attack(&ca);
 		std::cout << *khans;
-		khans->attack(ca);
+		khans->attack(&ca);
 
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 
 		khans->recoverAP();
 		std::cout << *khans;
@@ -90,23 +90,23 @@ int	main() {
 
 		khans->equip(pr);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 
 		khans->recoverAP();
 		std::cout << *khans;
@@ -118,11 +118,11 @@ int	main() {
 		std::cout << *khans;
 
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 		std::cout << *khans;
-		khans->attack(sm);
+		khans->attack(&sm);
 
 		delete aa;
 		delete pr;

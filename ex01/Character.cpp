@@ -36,8 +36,12 @@ void				Character::equip(AWeapon * weapon) {
 	this->setWeapon(weapon);
 }
 
-void				Character::attack(Enemy *enemy) {
-	if (this->getWeapon() == 0 || enemy == 0 || enemy->getIsAlive() == false ||
+void				Character::attack(Enemy **e) {
+	if (!e) {
+		return;
+	}
+	Enemy* enemy = *e;
+	if (this->getWeapon() == 0 || enemy == 0 ||
 			(this->getWeapon()->getAPCost() > this->getAP())) {
 		return;
 	} else {
@@ -47,6 +51,10 @@ void				Character::attack(Enemy *enemy) {
 		this->getWeapon()->attack();
 		this->setAP(this->getAP() - this->getWeapon()->getAPCost());
 		enemy->takeDamage(this->getWeapon()->getDamage());
+		if (enemy->getHP() == 0) {
+			delete enemy;
+			*e = 0;
+		}
 	}
 }
 
